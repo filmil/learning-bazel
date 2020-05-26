@@ -5,7 +5,7 @@
 
 # --- begin runfiles.bash initialization ---
 # Copy-pasted from Bazel's Bash runfiles library (tools/bash/runfiles/runfiles.bash).
-set -euo pipefail
+set -eo pipefail
 if [[ ! -d "${RUNFILES_DIR:-/dev/null}" && ! -f "${RUNFILES_MANIFEST_FILE:-/dev/null}" ]]; then
   if [[ -f "$0.runfiles_manifest" ]]; then
     export RUNFILES_MANIFEST_FILE="$0.runfiles_manifest"
@@ -52,6 +52,6 @@ fi
 # Evaluate the output of the call to gotopt2, shell vars assignment is here.
 eval "${GOTOPT2_OUTPUT}"
 if [[ "${gotopt2_foo}" != "bar" ]]; then
-  echo "Want: bar; got: '${gotopt_foo}'"
+  echo "Wanted --foo=bar; got: --foo='${gotopt_foo}'"
   exit 1
 fi
