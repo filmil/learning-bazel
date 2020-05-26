@@ -1,0 +1,12 @@
+# Try building a shell library.
+
+sh_library(
+  name = "lib",
+  srcs = ["lib.sh"],
+)
+
+sh_binary(
+  name = "bin",
+  srcs = ["bin.sh"],
+  deps = [":lib"],
+)
