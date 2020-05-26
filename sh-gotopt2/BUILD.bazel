@@ -1,0 +1,10 @@
+sh_binary(
+  name = "bin",
+  srcs = [ "bin.sh", ],
+  deps = [
+    "@bazel_tools//tools/bash/runfiles",
+  ],
+  data = [
+    "@gotopt2//cmd/gotopt2:gotopt2",
+  ],
+)
