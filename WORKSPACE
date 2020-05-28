@@ -26,30 +26,6 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
 gazelle_dependencies()
 
-go_repository(
-    name = "com_github_golang_glog",
-    commit = "23def4e6c14b",
-    importpath = "github.com/golang/glog",
-)
-
-go_repository(
-    name = "com_github_google_go_cmp",
-    importpath = "github.com/google/go-cmp",
-    tag = "v0.2.0",
-)
-
-go_repository(
-    name = "in_gopkg_check_v1",
-    commit = "20d25e280405",
-    importpath = "gopkg.in/check.v1",
-)
-
-go_repository(
-    name = "in_gopkg_yaml_v2",
-    importpath = "gopkg.in/yaml.v2",
-    tag = "v2.2.2",
-)
-
 git_repository(
     name = "bazel_bats",
     remote = "https://github.com/filmil/bazel-bats",
@@ -63,5 +39,5 @@ git_repository(
     branch = "master",
 )
 
-load("@bazel_bats//:deps.bzl", "bazel_bats_dependencies")
-bazel_bats_dependencies()
+load("@gotopt2//build:deps.bzl", "gotopt2_dependencies")
+gotopt2_dependencies()
