@@ -1,8 +1,24 @@
 load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 sh_binary(
     name = "bin",
     srcs = ["bin.sh"],
+    data = [
+        "@gotopt2//cmd/gotopt2",
+    ],
+    deps = [
+        "@bazel_tools//tools/bash/runfiles",
+    ],
+)
+
+# bin.sh already asserts that gotopt2 parsed --foo=bar, so running it under
+# the test rule is a regression test for the runfiles lookup path.
+sh_test(
+    name = "bin_test",
+    srcs = ["bin.sh"],
+    args = ["--foo=bar"],
+    size = "small",
     data = [
         "@gotopt2//cmd/gotopt2",
     ],

@@ -2,6 +2,7 @@
 
 load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 load("@rules_shell//shell:sh_library.bzl", "sh_library")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 sh_library(
     name = "lib",
@@ -11,5 +12,12 @@ sh_library(
 sh_binary(
     name = "bin",
     srcs = ["bin.sh"],
+    deps = [":lib"],
+)
+
+sh_test(
+    name = "lib_test",
+    srcs = ["lib_test.sh"],
+    size = "small",
     deps = [":lib"],
 )
