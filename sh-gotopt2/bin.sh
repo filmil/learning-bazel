@@ -26,10 +26,8 @@ else
 fi
 # --- end runfiles.bash initialization ---
 
-# This is seriously weird: should I be guessing the OS and architecture to get
-# at a binary that I want to use?
 readonly _gotopt_binary="$(rlocation \
-  gotopt2/cmd/gotopt2/linux_amd64_stripped/gotopt2)"
+  gotopt2/cmd/gotopt2/gotopt2_/gotopt2)"
 
 GOTOPT2_OUTPUT=$($_gotopt_binary "${@}" <<EOF
 flags:

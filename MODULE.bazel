@@ -1,0 +1,9 @@
+module(
+    name = "learning_bazel",
+    version = "0.0.0",
+)
+
+bazel_dep(name = "rules_shell", version = "0.8.0")
+bazel_dep(name = "gotopt2", version = "2.9.0")
+
+bazel_dep(name = "buildifier_prebuilt", version = "8.5.1.4", dev_dependency = True)
