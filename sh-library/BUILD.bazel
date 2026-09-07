@@ -1,12 +1,15 @@
 # Try building a shell library.
 
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_library.bzl", "sh_library")
+
 sh_library(
-  name = "lib",
-  srcs = ["lib.sh"],
+    name = "lib",
+    srcs = ["lib.sh"],
 )
 
 sh_binary(
-  name = "bin",
-  srcs = ["bin.sh"],
-  deps = [":lib"],
+    name = "bin",
+    srcs = ["bin.sh"],
+    deps = [":lib"],
 )
